@@ -89,6 +89,7 @@ DEFAULT_CONFIG = with_common_config({
         "dirichlet_noise": 0.03,
         "argmax_tree_policy": False,
         "add_dirichlet_noise": True,
+        "is_two_players": False,
     },
 
     # === Ranked Rewards ===
@@ -177,7 +178,7 @@ class AlphaZeroPolicyWrapperClass(AlphaZeroPolicy):
             alpha_zero_loss,
             TorchCategorical,
             mcts_creator,
-            _env_creator,
+            _env_creator
         )
 
 

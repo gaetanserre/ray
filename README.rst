@@ -1,5 +1,22 @@
 **A fork of the Ray framework that aims to implements two-players AlphaZero algorithm**
 
+In ray, by default, the alpha-zero algorithm is for one-play game.
+Now, you can specify if your game is made for one or two players.
+You just have to set the mcts parameter *is_two_players* to *True*
+Example::
+    # === MCTS ===
+    "mcts_config": {
+        "puct_coefficient": 1.0,
+        "num_simulations": 30,
+        "temperature": 1.5,
+        "dirichlet_epsilon": 0.25,
+        "dirichlet_noise": 0.03,
+        "argmax_tree_policy": False,
+        "add_dirichlet_noise": True,
+        "is_two_players": True,
+    }
+
+
 .. image:: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
 
 **Ray provides a simple, universal API for building distributed applications.**

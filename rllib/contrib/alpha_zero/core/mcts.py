@@ -97,11 +97,16 @@ class Node:
             )
         return self.children[action]
 
-    def backup(self, value):
+    def backup(self, value, switch):
         current = self
+        coeff = 1
         while current.parent is not None:
             current.number_visits += 1
-            current.total_value += value
+            if switch:
+                current.total_value += value * coeff
+                coeff = -coeff
+            else:
+              current.total_value += value
             current = current.parent
 
 
@@ -123,6 +128,8 @@ class MCTS:
         self.exploit = mcts_param["argmax_tree_policy"]
         self.add_dirichlet_noise = mcts_param["add_dirichlet_noise"]
         self.c_puct = mcts_param["puct_coefficient"]
+        self.is_two_players = mcts_param["is_two_players"]
+
 
     def compute_action(self, node):
         for _ in range(self.num_sims):
@@ -138,7 +145,7 @@ class MCTS:
                     )
 
                 leaf.expand(child_priors)
-            leaf.backup(value)
+            leaf.backup(value, self.is_two_players)
 
         # Tree policy target (TPT)
         tree_policy = node.child_number_visits / node.number_visits

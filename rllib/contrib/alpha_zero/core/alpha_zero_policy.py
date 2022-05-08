@@ -38,6 +38,7 @@ class AlphaZeroPolicy(TorchPolicy):
         self.env = self.env_creator()
         self.env.reset()
         self.obs_space = observation_space
+        self.is_two_players = config["mcts_config"]["is_two_players"]
 
     @override(TorchPolicy)
     def compute_actions(
@@ -129,7 +130,16 @@ class AlphaZeroPolicy(TorchPolicy):
         if self.env.__class__.__name__ == "RankedRewardsEnvWrapper":
             self.env.r2_buffer.add_reward(final_reward)
             final_reward = self.env.r2_buffer.normalize(final_reward)
-        sample_batch["value_label"] = final_reward * np.ones_like(sample_batch["t"])
+
+        if self.is_two_players:
+            sample_batch["value_label"] = np.ones_like(sample_batch["t"])
+            coeff = 1
+            for i in range(sample_batch["value_label"].shape[0]-1, 0, -1):
+                sample_batch["value_label"][i] = final_reward * coeff
+                coeff = -coeff
+        else:
+            sample_batch["value_label"] = final_reward * np.ones_like(sample_batch["t"])
+            
         return sample_batch
 
     @override(TorchPolicy)
