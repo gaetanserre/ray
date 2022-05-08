@@ -1,7 +1,6 @@
+**A fork of the Ray framework that aims to implements two-players AlphaZero algorithm**
+
 .. image:: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
-
-A fork of the Ray framework that aims to implements two-players AlphaZero algorithm
-
 
 **Ray provides a simple, universal API for building distributed applications.**
 
