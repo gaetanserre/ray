@@ -133,8 +133,9 @@ class AlphaZeroPolicy(TorchPolicy):
 
         if self.is_two_players:
             sample_batch["value_label"] = np.ones_like(sample_batch["t"])
-            coeff = 1
-            for i in range(sample_batch["value_label"].shape[0]-1, 0, -1):
+            # We start with -final_reward because the final observation is ignored
+            coeff = -1
+            for i in range(sample_batch["value_label"].shape[0]-1, -1, -1):
                 sample_batch["value_label"][i] = final_reward * coeff
                 coeff = -coeff
         else:
