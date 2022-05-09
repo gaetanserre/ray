@@ -99,7 +99,7 @@ class Node:
 
     def backup(self, value, switch):
         current = self
-        # -1 because we want the value to be from the pov of the parent node
+        # starts from -1 to have the value from the pov of the parent node
         coeff = -1
         while current.parent is not None:
             current.number_visits += 1
