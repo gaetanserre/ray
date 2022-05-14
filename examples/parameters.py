@@ -5,7 +5,7 @@ parameters = {}
 parameters["num_cpus"] = 8
 parameters["num_gpus"] = 1
 
-parameters["env"] = TicTacToe
+parameters["env"] = Connect4
 parameters["model"] = DenseModel
 parameters["config"] = {
                         "env": parameters["env"],
@@ -16,7 +16,7 @@ parameters["config"] = {
                         "num_sgd_iter": 30,
                         "mcts_config": {
                             "puct_coefficient": 1.5,
-                            "num_simulations": 1000,
+                            "num_simulations": 2000,
                             "temperature": 1.5,
                             "dirichlet_epsilon": 0.25,
                             "dirichlet_noise": 0.03,
@@ -31,7 +31,7 @@ parameters["config"] = {
                             "custom_model": "model",
                         }
                       }
-parameters["nb_iterations"] = 40
+parameters["nb_iterations"] = 100
 parameters["local_dir"] = "exps"
-parameters["name"] = "AlphaZero_TicTacToe"
+parameters["name"] = "AlphaZero_Connect4"
 parameters["checkpoint_freq"] = 10
