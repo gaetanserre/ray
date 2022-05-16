@@ -33,9 +33,9 @@ class Connect2(gym.Env):
     player = state[-1]
     state = state[:-1]
     if self._is_win(state, player):
-      return -1
-    elif self._is_win(state, -player):
       return 1
+    elif self._is_win(state, -player):
+      return -1
     elif not (state == 0).any():
       return 0
     else:

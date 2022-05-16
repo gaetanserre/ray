@@ -16,7 +16,7 @@ parameters["config"] = {
                         "num_sgd_iter": 30,
                         "mcts_config": {
                             "puct_coefficient": 1.5,
-                            "num_simulations": 2000,
+                            "num_simulations": 3000,
                             "temperature": 1.5,
                             "dirichlet_epsilon": 0.25,
                             "dirichlet_noise": 0.03,
