@@ -17,6 +17,9 @@ class Connect2(gym.Env):
     self.running_reward = 0
 
     self.reset()
+
+  def _get_valid_acts(self):
+    return (self.obs[:-1] == 0).astype(np.float32)
   
   def _is_win(self, state, player):
     count = 0
@@ -58,7 +61,7 @@ class Connect2(gym.Env):
     done = rew is not None
 
     score = rew if done else 0
-    action_mask = (self.obs[:-1] == 0).astype(np.float32)
+    action_mask = self._get_valid_acts()
 
     return (
         {"obs": self.obs,
@@ -70,7 +73,7 @@ class Connect2(gym.Env):
 
   def set_state(self, state):
     self.obs = state.copy()
-    action_mask = (self.obs[:-1] == 0).astype(np.float32)
+    action_mask = self._get_valid_acts()
     return {"obs": self.obs, "action_mask": action_mask}
 
   def get_state(self):
