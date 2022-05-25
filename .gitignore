@@ -210,6 +210,3 @@ workflow_data/
 
 # vscode java extention generated
 .factorypath
-
-# Jupyter Notebooks
-**/.ipynb_checkpoints/
