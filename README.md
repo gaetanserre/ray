@@ -28,19 +28,3 @@ For `Connect2` and `TicTacToe`, their trained agent plays perfectly.
 Regarding `Connect4`, the agent plays very well but struggles to find the perfect move at the very beginning of the game.
 
 ![](https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png)
-
-## Ray provides a simple, universal API for building distributed applications.
-
-Ray is packaged with the following libraries for accelerating machine learning workloads:
-
-- `Tune`: Scalable Hyperparameter Tuning
-- `RLlib`: Scalable Reinforcement Learning
-- `Train`: Distributed Deep Learning (beta)
-- `Datasets`: Distributed Data Loading and Compute
-
-As well as libraries for taking ML and distributed apps to production:
-
-- `Serve`: Scalable and Programmable Serving
-- `Workflows`: Fast, Durable Application Flows (alpha)
-
-There are also many [community integrations](https://docs.ray.io/en/master/ray-libraries.html) with Ray, including `Dask`, `MARS`, `Modin`, `Horovod`, `Hugging Face`, `Scikit-learn`, and others. Check out the [full list of Ray distributed libraries here](https://docs.ray.io/en/master/ray-libraries.html).
