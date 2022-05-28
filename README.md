@@ -20,11 +20,12 @@ Example:
 ```
 ## Example games
 Some games along with their trained agent are implemented in the `examples` directory.
-- `Connect2` (To win, connect two token of your color on a board mode of 1 row and 4 columns)
+- `Connect2` (To win, connect two tokens of your color on a board made of 1 row and 4 columns)
 - `Tic Tac Toe`
 - `Connect4`
   
 For `Connect2` and `TicTacToe`, their trained agent plays perfectly.
+Regarding `Connect4`, the agent plays very well but struggles to find the perfect move at the very beginning of the game.
 
 ![](https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png)
 
