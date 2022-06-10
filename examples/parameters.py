@@ -31,7 +31,7 @@ parameters["config"] = {
                             "custom_model": "model",
                         }
                       }
-parameters["nb_iterations"] = 100
+parameters["nb_iterations"] = 150
 parameters["local_dir"] = "exps"
 parameters["name"] = "AlphaZero_Connect4"
 parameters["checkpoint_freq"] = 10
